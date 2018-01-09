@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Skrub</title>
+  </head>
+  <body>
+    <div style='width: 100%;'>
+      <div style='width: 650px; margin:0 auto;'>
+        <h1 id='skrub' style='font-size: 50pt;'></h1>
+      </div>
+    </div>
+  </body>
+
+  <script type='text/javascript'>
+    var list = ["Skrub", "Nugget", "Pleb", "Kekl Biby", "Scrub", "BB", "Muffin", "Ravioli", "Boi", "Biscuit", "Biscotti", "Nug"];
+
+    var skrub = function() {
+      var num = randomInRange(1, list.length-1, true);
+      var word1 = list[num];
+      var word2 = list[0];
+      list[num] = word2;
+      list[0] = word1;
+
+      document.getElementById('skrub').innerHTML = 'You are a... ' + word1;
+
+      setTimeout(skrub, 100);
+    }
+
+    var randomInRange = function(min, max, round) {
+      var ran = Math.random() * (max - min) + min;
+      if (round) ran = Math.floor(ran);
+      return ran;
+    }
+
+    skrub();
+  </script>
+</html>
